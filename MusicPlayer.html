@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0-4/css/all.css"
+    />
+    <script src="App.js"></script>
+    <link rel="stylesheet" href="StylePlayer.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Style+Script&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      @import url("https://fonts.googleapis.com/css2?family=Style+Script&display=swap");
+    </style>
+    <title>Document</title>
+  </head>
+  <body>
+    <div class="container">
+      <div class="music_box">
+        <h2 id="title" class="song" style="font-size: 2.5rem">Jannat Ve</h2>
+        <h3 id="artist" class="artist" style="font-size: 2.2rem">
+          Darshan Raval
+        </h3>
+        <div class="imag">
+          <img
+            class="img"
+            src="images/Jannat Ve - Darshan Raval 128 Kbps.jpg"
+          />
+        </div>
+        <audio src="music/Jannat Ve - Darshan Raval 128 Kbps.mp3"></audio>
+        <div class="button">
+          <i class="fas fa-backward" id="prev"></i>
+          <i class="fas fa-play main_button" id="play"></i>
+          <i class="fas fa-forward" id="next"></i>
+        </div>
+      </div>
+    </div>
+    <script>
+      const play = document.getElementById("play");
+      const title = document.getElementById("title");
+      const artist = document.getElementById("artist");
+      const next = document.getElementById("next");
+      const prev = document.getElementById("prev");
+      const img = document.querySelector("img");
+      const music = document.querySelector("audio");
+
+      const songList = [
+        {
+          name: "Jannat Ve - Darshan Raval 128 Kbps",
+          title: "Jannat Ve",
+          artist: "Darshan Raval",
+        },
+        {
+          name: "Filhaal2 Mohabbat - B Praak 128 Kbps",
+          title: "Filhaal 2",
+          artist: "B Praak",
+        },
+        {
+          name: "Lut Gaye - Jubin Nautiyal 128 Kbps",
+          title: "Lut Gaye",
+          artist: "Jubin Nautiyal",
+        },
+      ];
+
+      let isPlaying = false;
+      const playMusic = () => {
+        isPlaying = true;
+        music.play();
+        play.classList.replace("fa-play", "fa-pause");
+        img.classList.add("anime");
+      };
+
+      const pauseMusic = () => {
+        isPlaying = false;
+        music.pause();
+        play.classList.replace("fa-pause", "fa-play");
+        img.classList.remove("anime");
+      };
+      const loadSongs = (songList) => {
+        title.textContent = songList.title;
+        artist.textContent = songList.artist;
+        music.src = "music/" + songList.name + ".mp3";
+        img.src = "images/" + songList.name + ".jpg";
+      };
+      songIndex = 0;
+      const nextSong = () => {
+        songIndex = (songIndex + 1) % songList.length;
+       
+        loadSongs(songList[songIndex]); playMusic();
+      };
+      const prevSong = () => {
+        songIndex = (songIndex - 1 + songList.length) % songList.length;
+        loadSongs(songList[songIndex]);
+        playMusic();
+      };
+
+      //   const nextSong = () =>{
+
+      //     loadSongs(songList[songIndex]);
+      //   }
+      prev.addEventListener("click", prevSong);
+      next.addEventListener("click", nextSong);
+
+      //   loadSongs(songList[2]);
+
+      play.addEventListener("click", () => {
+        isPlaying ? pauseMusic() : playMusic();
+      });
+    </script>
+  </body>
+</html>

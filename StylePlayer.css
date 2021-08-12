@@ -1,0 +1,105 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-size: 62.5%;
+}
+.container{
+    display: grid;
+    place-items:center;
+    justify-content: center;
+    width: 100vw;
+    height: 100vh;
+    background-color: #fff;
+    box-shadow: 0 1rem 2rem 0.2rem rgba(0,0,0,0.4);
+}
+.music_box{
+    width: 35rem;
+    height: 45rem;
+    background-color: powderblue;
+    border-radius: 1.5rem;
+    justify-content: center;
+}
+.song{
+    display: grid;
+    justify-content: center;
+    /* font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif; */
+    margin-top: 2rem;
+}
+.artist{
+    display: grid;
+    justify-content: center;
+    margin-top: 2rem;
+}  
+.imag{
+    /* display: grid;
+    justify-content: center; */
+    display: flex;
+    justify-content: center;
+    box-shadow: 0 1.2rem 3 0.5rem rgba(0,0,0,0.4);
+    /* margin-left: 2.5rem; */
+}
+.img{
+    width: 25rem;
+    height: 25rem;
+    margin-top: .6rem;
+    border-radius: 50%;
+    object-fit: cover;
+}
+.button{
+   font-size: 4rem;
+   display: flex;
+   justify-content: space-around;
+   align-items: center;
+   margin: auto;
+   margin-top: 4rem;
+}
+.button .fas{
+    color: #000;
+    font-size: 2rem;
+    cursor: pointer;
+    filter: drop-shadow(0 1.2rem 3 0.5rem rgba(0,0,0,0.4));
+}
+.button .fas:hover{
+    color: gray;
+}
+.button .fa-play:hover{
+    color: #000;
+    background-color: #f6f6f6;
+    box-shadow: 0 1rem 2rem 0.2rem rgba(0,0,0,0.4);
+}
+.button .main_button{
+    width: 5rem;
+    height: 5rem;
+    border-radius: 50%;
+    background-color: black;
+    color: #f6f6f6;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.anime{
+    animation: roller 6s linear infinite;
+}
+@keyframes roller {
+        
+        from { transform: rotate(0deg);}
+        /* 100% {rotate: 360deg;}  */
+        to { transform: rotate(360deg);}
+}
+.play{
+    font-size: 1.6rem;
+}
+.prev{
+    /* margin-left: 7rem; */
+    font-size: 1.6rem;
+}
+
+.next{
+    margin-right: 7rem;
+    font-size: 1.6rem;
+}
+.play i:hover{
+    background-color: #000;
+    color: #fff;
+}
